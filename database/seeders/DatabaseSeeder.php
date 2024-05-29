@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@gmail.com',
         // ]);
 
-        Role::create(['name' => 'admin']);
+        // Role::create(['name' => 'admin']);
         Role::create(['name' => 'client']);
     }
 }
