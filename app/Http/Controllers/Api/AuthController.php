@@ -91,7 +91,7 @@ class AuthController extends Controller
             $login_field => $request->username_or_email,
             'password' => $request->password,
         ];
-
+        
         if (Auth::attempt($auth_credentials)) {
             /** @var \App\Models\User $user **/
             $user = Auth::user();

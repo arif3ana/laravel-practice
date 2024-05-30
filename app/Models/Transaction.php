@@ -30,4 +30,12 @@ class Transaction extends Model
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
+
+    public function scopeSearch($query, $keyword)
+    {
+        return $query->when($keyword, function ($query, $keyword) {
+            return $query->where('t.description', 'LIKE', '%' . $keyword . '%')
+                ->orWhere('c.name', 'LIKE', '%' . $keyword . '%');
+        });
+    }
 }
