@@ -2,6 +2,7 @@
 
 use App\Enums\TokenAbility;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\TransactionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,4 +25,9 @@ Route::middleware('auth:sanctum', 'ability:' . TokenAbility::ACCESS_API()->key()
  Route::get('/v1/transaction/ShowUpdateTransaction/{id}', [TransactionController::class, 'ShowUpdateTransaction']);
  Route::put('/v1/transaction/UpdateTransaction/{id}', [TransactionController::class, 'UpdateTransaction']);
  Route::delete('/v1/transaction/DeleteTransaction/{id}', [TransactionController::class, 'DeleteTransaction']);
+
+ Route::get('/v1/category/GetCategory', [CategoryController::class, 'GetCategory']);
+ Route::post('/v1/category/CreateCategory', [CategoryController::class, 'CreateCategory']);
+ Route::get('/v1/category/ShowUpdateCategory/{id}', [CategoryController::class, 'ShowUpdateCategory']);
+ Route::put('/v1/category/UpdateCategory/{id}', [CategoryController::class, 'UpdateCategory']);
 });

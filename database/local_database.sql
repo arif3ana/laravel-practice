@@ -39,3 +39,5 @@ FROM transactions t
 WHERE
     t.id = 1;
 
+
+Select * from categories;

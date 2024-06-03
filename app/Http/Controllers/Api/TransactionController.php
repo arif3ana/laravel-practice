@@ -51,7 +51,7 @@ class TransactionController extends Controller
             Log::info('SUCCESS: GetTransaction ', ['message' => 'Data query was successful!']);
             return response()->json($response, 200);
         } catch (\Exception $e) {
-            Log::error('ERROR: GetTransaction ', ['error' => $e]);
+            Log::error('ERROR: GetTransaction ', ['error' => $e->getMessage()]);
             $response = $this->response_error(message: 'Data query was fail!', data: null);
             return response()->json($response, 500);
         }
@@ -71,7 +71,7 @@ class TransactionController extends Controller
             Log::info('SUCCESS: ShowCreateTransaction ', ['message' => 'Show data was successful!']);
             return response()->json($response, 200);
         } catch (\Exception $e) {
-            Log::error('ERROR: ShowCreateTransaction ', ['error' => $e]);
+            Log::error('ERROR: ShowCreateTransaction ', ['error' => $e->getMessage()]);
             $response = $this->response_error(message: 'Data query was fail!', data: null);
             return response()->json($response, 500);
         }
@@ -130,7 +130,7 @@ class TransactionController extends Controller
             return response()->json($response, 201);
         } catch (\Exception $e) {
             DB::rollback();
-            Log::error('ERROR: CreateTransaction ', ['error' => $e]);
+            Log::error('ERROR: CreateTransaction ', ['error' => $e->getMessage()]);
             $response = $this->response_error(message: 'Create Transaction Faild!', data: null);
             return response()->json($response, 500);
         }
@@ -149,7 +149,7 @@ class TransactionController extends Controller
             Log::info('SUCCESS: ShowUpdateTransaction ', ['message' => 'Show data was successful!']);
             return response()->json($response, 200);
         } catch (\Exception $e) {
-            Log::error('ERROR: ShowUpdateTransaction ', ['error' => $e]);
+            Log::error('ERROR: ShowUpdateTransaction ', ['error' => $e->getMessage()]);
             $response = $this->response_error(message: 'Data query was fail!', data: null);
             return response()->json($response, 500);
         }
@@ -203,7 +203,7 @@ class TransactionController extends Controller
             return response()->json($response, 200);
         } catch (\Exception $e) {
             DB::rollback();
-            Log::error('ERROR: UpdateTransaction ', ['error' => $e]);
+            Log::error('ERROR: UpdateTransaction ', ['error' => $e->getMessage()]);
             $response = $this->response_error(message: 'Update Transaction Faild!', data: null);
             return response()->json($response, 500);
         }
@@ -219,7 +219,7 @@ class TransactionController extends Controller
             Log::info('SUCCESS: DeleteTransaction ', ['message' => 'Delete Transaction Success!']);
             return response()->json($response, 200);
         } catch (\Exception $e) {
-            Log::error('ERROR: DeleteTransaction ', ['error' => $e]);
+            Log::error('ERROR: DeleteTransaction ', ['error' => $e->getMessage()]);
             $response = $this->response_error(message: 'Delete Transaction Faild!', data: null);
             return response()->json($response, 500);
         }
