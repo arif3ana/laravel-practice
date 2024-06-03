@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('category_id')->constrained();
+            $table->string('transaction_name');
             $table->decimal('amount', 15, 2);
             $table->string('type');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->date('transaction_date');
             $table->timestamps();
         });

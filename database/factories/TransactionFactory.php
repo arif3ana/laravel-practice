@@ -22,6 +22,7 @@ class TransactionFactory extends Factory
     {
         return [
             'user_id' => 1,
+            'transaction_name' => $this->faker->sentence(),
             'amount' => $this->faker->randomFloat(2, 10, 1000),
             'type' => $this->faker->randomElement(['income', 'expense']),
             'category_id' => $this->faker->randomElement([1, 2, 3, 4]),
